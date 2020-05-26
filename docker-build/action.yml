@@ -1,0 +1,16 @@
+name: 'Creating image'
+author: 'Ekimov Arkadiy'
+description: 'Pushes the container in Yandex cloud repository'
+inputs:
+  name:
+    description: 'The name of the image'
+    required: true
+  username:
+    description: 'The login'
+    required: true
+  password:
+    description: 'The password'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

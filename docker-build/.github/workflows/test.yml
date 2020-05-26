@@ -1,0 +1,13 @@
+name: Build and Publish Docker
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish to Docker Repository
+      uses: martyr30/ci-cd-test@master
+      with:
+        name: test-image
+        username: oauth
+        password: ${{ secrets.DOCKER_PASSWORD }}
