@@ -1,2 +1,2 @@
-# ci-cd-test
-ci-cd-test
+# Docker build
+Build docker image in a yandex cloud registry.
