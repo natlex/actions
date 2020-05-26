@@ -11,8 +11,8 @@ inputs:
   password:
     description: 'The password'
     required: true
-  repository:
-    description: 'The repository'
+  registry:
+    description: 'The container registry'
     required: true
 runs:
   using: 'docker'

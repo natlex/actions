@@ -9,8 +9,8 @@ function main() {
   echo "${DOCKERNAME}"
 
   docker build -t ${DOCKERNAME} .
-  docker tag ${DOCKERNAME} cr.yandex/${INPUT_REPOSITORY}/${DOCKERNAME}
-  docker push cr.yandex/${INPUT_REPOSITORY}/${DOCKERNAME}
+  docker tag ${DOCKERNAME} ${INPUT_REGISTRY}/${DOCKERNAME}
+  docker push ${INPUT_REGISTRY}/${DOCKERNAME}
 
   docker logout
 }
