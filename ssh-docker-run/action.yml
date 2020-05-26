@@ -1,0 +1,22 @@
+name: 'Image Run on instance'
+author: 'Ekimov Arkadiy'
+description: 'Run the container on Yandex cloud instance'
+inputs:
+  user:
+    description: 'Tech. user'
+    required: true
+  host:
+    description: 'Instance IP'
+    required: true
+  dep_key:
+    description: 'Private key'
+    required: true
+  oauth:
+    description: 'OAUTH key'
+    required: true
+  registry:
+    description: 'Registry ID'
+    required: true    
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
