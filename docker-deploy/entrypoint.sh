@@ -5,7 +5,7 @@ function main() {
 
   set -e
   SSH_PATH="$HOME/.ssh"
-
+  echo "$SSH_PATH"
   mkdir -p "$SSH_PATH"
   touch "$SSH_PATH/known_hosts"
 
