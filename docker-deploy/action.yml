@@ -16,7 +16,7 @@ inputs:
     required: true
   registry:
     description: 'Registry ID'
-    required: true    
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
