@@ -23,7 +23,8 @@ function main() {
 
   ls -a
   scp -r -o StrictHostKeyChecking=no ./docker-compose/ $INPUT_USER@$INPUT_HOST:/home/$INPUT_USER/
-  ssh -o StrictHostKeyChecking=no -A -tt $INPUT_USER@$INPUT_HOST "./docker-compose/run.sh $INPUT_OAUTH $INPUT_REGISTRY"
+  echo "test"
+  ssh -o StrictHostKeyChecking=no -A -tt $INPUT_USER@$INPUT_HOST "sudo ./docker-compose/run.sh $INPUT_OAUTH $INPUT_REGISTRY"
 }
 
 main
