@@ -15,7 +15,7 @@ function main() {
   # docker tag ${DOCKERNAME} ${INPUT_REGISTRY}/${DOCKERNAME}
   docker push ${INPUT_REGISTRY}/${DOCKERNAME}:${GITHUB_SHA:0:8}
 
-  docker logout
+  docker logout cr.yandex
 }
 
 main
