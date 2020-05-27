@@ -25,8 +25,8 @@ function main() {
   export IMAGE="${INPUT_REGISTRY}/site:${GITHUB_SHA:0:8}"
   echo "$IMAGE"
   cd ./docker-compose
-  docker-compose up -d traefik
-  docker-compose up -d site
+  DOCKER_HOST="127.0.0.1:6789" docker-compose up -d traefik
+  DOCKER_HOST="127.0.0.1:6789" docker-compose up -d site
 
   docker logout cr.yandex
 }
