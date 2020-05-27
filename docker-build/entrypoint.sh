@@ -12,7 +12,6 @@ function main() {
   echo "${GITHUB_SHA}"
 
   docker build -t ${INPUT_REGISTRY}/${DOCKERNAME}:${GITHUB_SHA:0:8} .
-  # docker tag ${DOCKERNAME} ${INPUT_REGISTRY}/${DOCKERNAME}
   docker push ${INPUT_REGISTRY}/${DOCKERNAME}:${GITHUB_SHA:0:8}
 
   docker logout cr.yandex
