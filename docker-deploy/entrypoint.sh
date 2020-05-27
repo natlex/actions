@@ -27,16 +27,6 @@ function main() {
   docker-compose up -d site
 
   docker logout cr.yandex
-
-  # chmod 777 ./docker-compose/run.sh
-  # cat "$SSH_PATH/dep_key"
-  # cat "$SSH_PATH/known_hosts"
-  # ls -a ./docker-compose
-  # echo "$INPUT_USER@$INPUT_HOST"
-  # ssh -o StrictHostKeyChecking=no -A -tt $INPUT_USER@$INPUT_HOST "docker-compose -v"
-  # scp -r -o StrictHostKeyChecking=no ./docker-compose/ $INPUT_USER@$INPUT_HOST:/home/$INPUT_USER/
-  # echo "test"
-  # ssh -o StrictHostKeyChecking=no -A -tt $INPUT_USER@$INPUT_HOST "sudo ./docker-compose/run.sh $INPUT_PASSWORD $INPUT_REGISTRY"
 }
 
 main
