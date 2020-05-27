@@ -10,6 +10,7 @@ function main() {
   touch "$SSH_PATH/known_hosts"
 
   echo "$INPUT_DEP_KEY" > "$SSH_PATH/dep_key"
+  ls -a
 
   chmod 700 "$SSH_PATH"
   chmod 600 "$SSH_PATH/known_hosts"
@@ -20,7 +21,8 @@ function main() {
   ssh-keyscan -t rsa $INPUT_HOST >> "$SSH_PATH/known_hosts"
 
   chmod 777 ./docker-compose/run.sh
-
+  cat "$SSH_PATH/dep_key"
+  cat "$SSH_PATH/known_hosts"
   ls -a
   scp -r -o StrictHostKeyChecking=no ./docker-compose/ $INPUT_USER@$INPUT_HOST:/home/$INPUT_USER/
   echo "test"
