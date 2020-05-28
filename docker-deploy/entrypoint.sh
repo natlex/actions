@@ -27,7 +27,7 @@ function main() {
   cd ./docker-compose
   DOCKER_HOST="127.0.0.1:6789" docker-compose up -d
 
-  docker logout cr.yandex
+  docker -H 127.0.0.1:6789 logout cr.yandex
 }
 
 main
