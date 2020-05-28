@@ -1,12 +1,8 @@
 #!/bin/sh
 
 function main() {
-  echo "enter in the main location"
-
   set -e
-
   SSH_PATH="$HOME/.ssh"
-
   mkdir -p "$SSH_PATH"
   touch "$SSH_PATH/known_hosts"
 
@@ -18,17 +14,15 @@ function main() {
 
   eval $(ssh-agent)
   ssh-add "$SSH_PATH/dep_key"
-
   ssh-keyscan -t rsa $INPUT_HOST >> "$SSH_PATH/known_hosts"
 
-  echo "Run.sh go!"
+  export IMAGE="${INPUT_REGISTRY}/site:${GITHUB_SHA:0:8}"
 
-  #ssh -o StrictHostKeyChecking=no -A -tt $INPUT_USER@$INPUT_HOST "$HOME/run.sh $INPUT_IAM"
-  ls -a
-  scp -r -o StrictHostKeyChecking=no ./ssh-docker-run/service/$INPUT_SERVICE_NAME/ $INPUT_USER@$INPUT_HOST:/home/$INPUT_USER/
-  ssh -o StrictHostKeyChecking=no -A -tt $INPUT_USER@$INPUT_HOST "./$INPUT_SERVICE_NAME/run.sh $INPUT_OAUTH $INPUT_REGISTRY"
-  #ssh -o StrictHostKeyChecking=no -A -tt $INPUT_USER@$INPUT_HOST "mkdir test-github"
-
+  cd ./docker-compose
+  ssh -o StrictHostKeyChecking=no -i $SSH_PATH/dep_key -f -o ExitOnForwardFailure=yes -L 127.0.0.1:6789:/var/run/docker.sock $INPUT_USER@$INPUT_HOST sleep 10
+  echo ${INPUT_PASSWORD} | docker -H 127.0.0.1:6789 login --username oauth --password-stdin cr.yandex
+  DOCKER_HOST="127.0.0.1:6789" docker-compose up -d
+  docker -H 127.0.0.1:6789 logout cr.yandex
 }
 
 main
