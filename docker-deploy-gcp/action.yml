@@ -1,0 +1,22 @@
+name: 'Image Run on instance'
+author: 'Ekimov Arkadiy'
+description: 'Run the container on Google cloud instance'
+inputs:
+  host:
+    description: 'Instance name'
+    required: true
+  user:
+    description: 'Service account name'
+    required: true
+  password:
+    description: 'Service account JSON key'
+    required: true
+  project:
+    description: 'GCloud project'
+    required: true
+  registry:
+    description: 'Google Artifact registry'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
