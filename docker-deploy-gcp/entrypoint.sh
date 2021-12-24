@@ -13,8 +13,8 @@ function main() {
   --ssh-flag="-L 127.0.0.1:6789:/var/run/docker.sock" \
   --command="sleep 10"
 
-  docker login -u _json_key -p "$(cat key.json)" \
-  https://$INPUT_REGISTRY
+  docker login -u _json_key --password-stdin \
+  https://$INPUT_REGISTRY < key.json
 
   cd ./docker-compose
 
