@@ -14,9 +14,6 @@ inputs:
   project:
     description: 'GCloud project'
     required: true
-  dep_key:
-    description: 'Private key'
-    required: true
   registry:
     description: 'GCloud Artefact registry'
     required: true
