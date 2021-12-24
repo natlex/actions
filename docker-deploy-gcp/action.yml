@@ -1,6 +1,6 @@
 name: 'Image Run on instance'
 author: 'Ekimov Arkadiy'
-description: 'Run the container on Yandex cloud instance'
+description: 'Run the container on Google cloud instance'
 inputs:
   host:
     description: 'Instance name'
@@ -15,7 +15,7 @@ inputs:
     description: 'GCloud project'
     required: true
   registry:
-    description: 'GCloud Artefact registry'
+    description: 'Google Artifact registry'
     required: true
 runs:
   using: 'docker'
