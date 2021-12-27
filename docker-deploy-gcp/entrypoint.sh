@@ -6,7 +6,9 @@ function main() {
   gcloud auth activate-service-account $INPUT_USER \
   --key-file=key.json --project=$INPUT_PROJECT
 
-  gcloud compute ssh $INPUT_HOST --project=$INPUT_PROJECT \
+  gcloud compute ssh $INPUT_HOST \
+  --zone=$INPUT_ZONE \
+  --project=$INPUT_PROJECT \
   --ssh-flag="-o StrictHostKeyChecking=no" \
   --ssh-flag="-o ExitOnForwardFailure=yes" \
   --ssh-flag="-f" \

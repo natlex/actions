@@ -14,6 +14,9 @@ inputs:
   project:
     description: 'GCloud project'
     required: true
+  zone:
+    description: 'GCloud zone'
+    required: true
   registry:
     description: 'Google Artifact registry'
     required: true
